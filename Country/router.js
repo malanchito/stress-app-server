@@ -5,7 +5,7 @@ const Country = require('../Country/model')
 router.get('/countries/mostSmoking', (req, res, next) => {
     Country
     .find().limit(10).sort({ cigarette_consumption: -1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
@@ -13,7 +13,7 @@ router.get('/countries/leastSmoking', (req, res, next) => {
     Country
     .find({ cigarette_consumption: { $gt: 0 }})
     .limit(10).sort({ cigarette_consumption: 1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
@@ -21,7 +21,7 @@ router.get('/countries/mostSmokingEurope', (req, res, next) => {
     Country
     .find({ continent: { $eq: 'Europe' }})
     .limit(10).sort({ cigarette_consumption: -1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
@@ -29,14 +29,14 @@ router.get('/countries/leastSmokingEurope', (req, res, next) => {
     Country
     .find({ cigarette_consumption: { $gt: 0 }, continent: { $eq: 'Europe' }})
     .limit(10).sort({ cigarette_consumption: 1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
 router.get('/countries/mostMedication', (req, res, next) => {
     Country
     .find().limit(5).sort({ antidepressant_consumption: -1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
@@ -44,7 +44,7 @@ router.get('/countries/leastMedication', (req, res, next) => {
     Country
     .find({ antidepressant_consumption: { $gt: 0 }})
     .limit(5).sort({ antidepressant_consumption: 1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
@@ -52,7 +52,7 @@ router.get('/countries/mostMedicationEurope', (req, res, next) => {
     Country
     .find({ continent: { $eq: 'Europe' }})
     .limit(5).sort({ antidepressant_consumption: -1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
 
@@ -60,14 +60,7 @@ router.get('/countries/leastMedicationEurope', (req, res, next) => {
     Country
     .find({ antidepressant_consumption: { $gt: 0 }, continent: { $eq: 'Europe' }})
     .limit(5).sort({ antidepressant_consumption: 1 })
-    .then(companies => res.send({ companies: companies }))
-    .catch(next)
-})
-
-router.get('/countries/mostSmoking', (req, res, next) => {
-    Country
-    .find().limit(10).sort({ cigarette_consumption: -1 })
-    .then(companies => res.send({ companies: companies }))
+    .then(countries => res.send({ countries: countries }))
     .catch(next)
 })
   
