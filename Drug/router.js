@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Drug = require('../Drug/model')
 
-router.get('/drugs', (req, res) => {
-    Drug.find((err, data) => {
-      if (err) return res.json({ success: false, error: err });
-      return res.json({ success: true, data: data });
-    });
-  });
+router.get('/drugs', (req, res, next) => {
+    Drug
+    .find().sort({ prescriptions: -1 })
+    .then(drugs => res.send({ drugs: drugs }))
+    .catch(next)
+});
   
 router.post('/drugs', (req, res) => {
     const { id, update } = req.body;

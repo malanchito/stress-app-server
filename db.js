@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbRoute = 'mongodb+srv://codaisseur:reindavid@cluster0-9wg2e.mongodb.net/test?retryWrites=true&w=majority';
+const dbRoute = 'mongodb+srv://codaisseur:reindavid@cluster0-9wg2e.mongodb.net/stress?retryWrites=true&w=majority';
 
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 

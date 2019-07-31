@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Job = require('../Job/model')
 
-router.get('/jobs', (req, res) => {
-    Job.find.sort({ name: 1 })((err, data) => {
-      if (err) return res.json({ success: false, error: err });
-      return res.json({ success: true, data: data });
-    });
-  });
+router.get('/jobs', (req, res, next) => {
+    Job
+    .find().sort({ stress: -1 })
+    .then(jobs => res.send({ jobs: jobs }))
+    .catch(next)
+  })
   
 router.post('/jobs', (req, res) => {
     const { id, update } = req.body;
@@ -34,7 +34,7 @@ router.post('/newJob', (req, res) => {
     job.salary = salary
     job.stress = stress
     job.save((err) => {
-      if (err) return res.json({ success: false, error: err });
+      if (err) return res.status(201).json({ success: false, error: err });
       return res.json({ success: true, job: job });
     });
 });
