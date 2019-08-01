@@ -20,7 +20,7 @@ router.post('/jobs', (req, res) => {
 router.post('/newJob', (req, res) => {
     const job = new Job();
   
-    const { name,description,image_url,video_url,salary,stress } = req.body;
+    const { name,description,image_url,video_url,start_time,salary,stress } = req.body;
   
     if (!name) {
       return res.json({
@@ -32,6 +32,7 @@ router.post('/newJob', (req, res) => {
     job.description = description
     job.image_url = image_url
     job.video_url = video_url
+    job.start_time = start_time
     job.salary = salary
     job.stress = stress
     job.save((err) => {
