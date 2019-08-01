@@ -6,6 +6,7 @@ const JobSchema = new Schema(
     name: String,
     description: String,
     image_url: String,
+    video_url: String,
     salary: Number,
     stress: Number
     
