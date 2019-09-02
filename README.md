@@ -1,5 +1,5 @@
 # Preface
-- This is the backend part of an individual game project through the Codaisseur Academy course during week 10, the goal of the project was to use a new technology from the ones learned during the course.
+This is the backend part of an individual game project through the Codaisseur Academy course during week 10, the goal of the project was to use a new technology from the ones learned during the course.
 
 ## Table of contents
 
