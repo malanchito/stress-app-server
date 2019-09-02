@@ -11,6 +11,7 @@
 
 ## Technologies used
 - Mongoose (NodeJs object modeling for MongoDB)
+- Express
 
 ## Setup
 - git clone
